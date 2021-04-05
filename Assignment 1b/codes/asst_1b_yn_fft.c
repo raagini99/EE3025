@@ -91,7 +91,6 @@ int main ()
     FFT(h_n,H_k,len);
     
     //Time domain convolution is frequency domain multiplication
-    
     double complex Y_k [new_len];
     for(int i=0;i<new_len;i++)
         Y_k[i] = X_k[i]*H_k[i];
