@@ -112,8 +112,8 @@ int main ()
     printf("Maximum absolute value of y(n) = %.5f",max_val);
     //Result matches with previously computed value
     
-    printf("First 10 values of y(n): \n");
-    //Printing first 10 values of y(n)
+    printf("First 20 values of y(n): \n");
+    //Printing first 20 values of y(n)
     for(int i=0;i<20;i++)
     {
         printf("%.5f \n",creal(y_n[i]));
