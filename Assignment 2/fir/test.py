@@ -47,18 +47,26 @@ N = math.ceil((A-8)/(4.57*delomega));
 
 N = 100
 n = np.array(list(range(-N,N+1)))
+
+#The Lowpass filter
 hlp = np.divide(np.sin(n*omega_l),(n*math.pi))
 hlp[N] = omega_l/math.pi
+Hlp = np.abs(np.polyval(hlp,np.exp(-1j*omega)));
 
 #The Bandpass filter
 hbp = 2*hlp*np.cos(n*omega_c)
+Hbp = np.abs(np.polyval(hbp,np.exp(-1j*omega)));
 
-#The bandpass filter plot
 omega = np.linspace(-math.pi/2,math.pi/2,200+1,endpoint=True);
 
-Hbp = np.abs(np.polyval(hbp,np.exp(-1j*omega)));
+#The lowpass filter plot
+#plt.plot(omega/math.pi,Hlp)
+#plt.ylabel(r'$|H_{lp}(\omega)|$')
+
+#The bandpass filter plot
 plt.plot(omega/math.pi,Hbp)
-plt.xlabel(r'$\omega/\pi$')
 plt.ylabel(r'$|H_{bp}(\omega)|$')
+
+plt.xlabel(r'$\omega/\pi$')
 
 fir_coeff = hbp
